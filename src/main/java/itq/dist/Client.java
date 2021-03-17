@@ -26,6 +26,8 @@ public class Client {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(clientRequest);
 
+            logger.info("Se inicia la petición de " + clientRequest.liters + "L");
+            
             InputStream inStream = clientSocket.getInputStream();
             DataInputStream dataIn = new DataInputStream(inStream);
             String serverResponse = dataIn.readUTF();
