@@ -32,7 +32,7 @@ public class ThreadCliente extends Thread{
           // Petición al servidor
             OutputStream outputStream = clientSocket.getOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-            //objectOutputStream.writeObject(usuario);
+            objectOutputStream.writeObject(usuario);
 
             logger.info("Se inicia la petición de " + usuario.liters + "L");
             

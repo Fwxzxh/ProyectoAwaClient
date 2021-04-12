@@ -15,17 +15,16 @@ public class Client {
     static  final int PORT = 2000;
 
     public static  void main(String[] args) {
-        try {
-
-            logger.info("Inicia la ejecucion del cliente");
+    	
+    logger.info("Inicia la ejecucion del cliente");
             
-            int i = 0;
-            while(i < 10) {
-            	Request clientRequest = new Request(1000,1);
-            	Thread hilo = new ThreadCliente(clientRequest);
-            	hilo.start();
-            	i++;
-            }
+    int i = 0;
+    while(i < 10) {
+    	Request clientRequest = new Request(1000,1);
+    	Thread hilo = new ThreadCliente(clientRequest);
+    	hilo.start();
+    	i++;
+    }
         /*
          * Socket clientSocket = new Socket(HOST, PORT);
 
@@ -51,10 +50,6 @@ public class Client {
             e.printStackTrace();
         }
         */
-        }
-        catch(Exception e) {
-        	e.printStackTrace();
-        }
-            
+        
     }
 }
