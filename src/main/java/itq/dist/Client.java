@@ -16,10 +16,18 @@ public class Client {
 
     public static  void main(String[] args) {
         try {
-            Request clientRequest = new Request(1000,1);
 
             logger.info("Inicia la ejecucion del cliente");
-            Socket clientSocket = new Socket(HOST, PORT);
+            
+            int i = 0;
+            while(i < 10) {
+            	Request clientRequest = new Request(1000,1);
+            	Thread hilo = new ThreadCliente(clientRequest);
+            	hilo.start();
+            	i++;
+            }
+        /*
+         * Socket clientSocket = new Socket(HOST, PORT);
 
           // Petición al servidor
             OutputStream outputStream = clientSocket.getOutputStream();
@@ -42,5 +50,11 @@ public class Client {
             logger.error("Ocurrio un error al establecer el canal de datos: [" + HOST + "] y puerto: [" + PORT + "]");
             e.printStackTrace();
         }
+        */
+        }
+        catch(Exception e) {
+        	e.printStackTrace();
+        }
+            
     }
 }
